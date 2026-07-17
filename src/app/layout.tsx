@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Moh Bhargava — CS Student & Builder",
+  title: "Moh Bhargava — AI/ML Builder",
   description:
-    "Portfolio of Moh Bhargava, a 1st-year Computer Science student at BITS Pilani, Hyderabad Campus.",
-  keywords: ["Moh Bhargava", "BITS Pilani", "CS Student", "Portfolio", "Full Stack Developer"],
+    "Portfolio of Moh Bhargava, an AI/ML builder and Computer Science and Mathematics student at BITS Pilani, Hyderabad Campus.",
+  keywords: ["Moh Bhargava", "BITS Pilani", "AI/ML", "RAG", "Agentic AI", "Portfolio"],
 };
 
 export default function RootLayout({

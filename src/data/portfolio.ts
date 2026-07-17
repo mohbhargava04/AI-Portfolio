@@ -1,12 +1,12 @@
 export const portfolioData = {
   personal: {
     name: "Moh Bhargava",
-    tagline: "Mathematics & Computer Science Student · Builder · Problem Solver",
-    bio: `I'm a 2nd-year MSc. Mathematics and B.E. Computer Science dual-degree student at BITS Pilani, Hyderabad Campus. I'm passionate about frontend development, UI/UX design, and competitive programming. I enjoy building clean, intuitive digital products and actively contribute to campus communities through tech, sports, and design.`,
+    tagline: "AI/ML Builder · Computer Science & Mathematics Student",
+    bio: `I'm a Computer Science and Mathematics dual-degree student at BITS Pilani, Hyderabad Campus. I build practical AI systems - from multi-agent workflows and RAG pipelines to tools that make complex work faster and more reliable. I also care deeply about thoughtful product design, photography, and powerlifting.`,
     location: "BITS Pilani, Hyderabad Campus",
     email: {
-      formal: "f20240845@hyderabad.bits-pilani.ac.in",
-      informal: "f20240845@hyderabad.bits-pilani.ac.in",
+      formal: "mohbhargava04@gmail.com",
+      informal: "mohbhargava04@gmail.com",
     },
     phone: "+91 8882480750",
     links: {
@@ -19,9 +19,9 @@ export const portfolioData = {
     {
       institution: "BITS Pilani, Hyderabad Campus",
       degree: "MSc. Mathematics + B.E. Computer Science (Dual Degree)",
-      period: "2024 – 2029",
+      period: "2024 – Present",
       detail:
-        "Pursuing a dual degree in Mathematics and Computer Science with interests in algorithms, data structures, and frontend development.",
+        "Pursuing a dual degree with a focus on AI systems, algorithms, data structures, and practical software development.",
       grade: "CGPA: 7.72",
     },
     {
@@ -43,19 +43,36 @@ export const portfolioData = {
   ],
 
   skills: {
-    languages: ["C", "C++", "Python"],
-    frameworks: ["HTML", "CSS"],
-    tools: ["Figma", "VS Code", "Linux", "LeetCode", "Codeforces"],
+    languages: ["Python", "C", "C++", "TypeScript", "JavaScript", "SQL"],
+    frameworks: ["Next.js", "React", "FastAPI", "Streamlit", "LangChain", "LlamaIndex", "crewAI", "AutoGen"],
+    tools: ["Git", "Ollama", "ChromaDB", "PostgreSQL", "Supabase", "PyMuPDF", "ReportLab", "Figma", "Linux"],
     areas: [
-      "Frontend Development",
-      "UI/UX Design",
-      "Responsive Web Design",
-      "Wireframing & Prototyping",
+      "Agentic AI Systems",
+      "RAG Pipelines",
+      "Multi-Agent Orchestration",
+      "Vector Search & Hybrid Retrieval",
+      "Prompt Engineering",
+      "Machine Learning & NLP",
       "Data Structures & Algorithms",
     ],
   },
 
   projects: [
+    {
+      name: "Codebase Documentation Agent",
+      tagline: "AI Documentation in a Single Run",
+      description:
+        "A three-agent sequential pipeline that ingests any GitHub repository URL and produces a complete documentation suite with no manual documentation work.",
+      problem:
+        "Engineering teams lose time understanding unfamiliar codebases and keeping README files, architecture overviews, onboarding guides, and inline documentation current.",
+      solution:
+        "Built an AI pipeline using crewAI, GitPython, and AST analysis that generates a README, architecture overview, onboarding guide, and inline docstrings in under three minutes.",
+      tech: ["Python", "crewAI", "GitPython", "AST", "Streamlit"],
+      type: "Agentic AI System",
+      status: "Completed",
+      github: null,
+      live: null,
+    },
     {
       name: "ReFind",
       tagline: "Campus Peer-to-Peer Marketplace",
@@ -65,7 +82,7 @@ export const portfolioData = {
         "College students relied on noisy, unorganised WhatsApp groups to buy and sell second-hand items, making it hard to find listings or connect with the right people.",
       solution:
         "A structured, searchable marketplace with a Dynamic Request Module — a 'two-sided' approach letting users post specific item needs, enabling sellers to meet existing demand proactively.",
-      tech: ["HTML", "CSS", "Figma"],
+      tech: ["Next.js", "HTML", "CSS", "Figma"],
       type: "Frontend Web App",
       status: "Completed",
       github: null,
@@ -75,6 +92,13 @@ export const portfolioData = {
 
   experience: [
     {
+      role: "AI/ML Intern",
+      organisation: "SimpleCRM · SimpleWorks Solutions, Nagpur",
+      period: "May 2026 – July 2026",
+      description:
+        "Built PitchBot, a production-oriented AI sales copilot with a seven-agent AutoGen ingestion pipeline and a direct ChromaDB + LLaMA 3.2 RAG path for sub-second live retrieval. Also developed an agentic insurance-policy assistant that reduced query resolution from roughly four minutes to 18 seconds, and a dual-sided AI hiring system that reduced application preparation to under five minutes and manual screening time by about 70% per applicant.",
+    },
+    {
       role: "Captain",
       organisation: "Powerlifting Team, BPHC",
       period: "April 2026 – Present",
@@ -82,11 +106,11 @@ export const portfolioData = {
         "Leading the BITS Hyderabad Powerlifting Team; increased team participation by over 60%. Previously served as Vice-Captain (June 2025 – April 2026). Won 2 silver medals in consecutive years at Arena, the sports fest of BITS Hyderabad.",
     },
     {
-      role: "Web Dev and Design OC",
+      role: "Web Dev & Design OC",
       organisation: "ATMoS 2025, BPHC",
       period: "August 2025 – November 2025",
       description:
-        "Contributed to the website and brochure design for ATMoS 2025. Designed merchandise for the executive team and assisted in organising and running the tech fest.",
+        "Designed the website, brochure, and merchandise for BITS Hyderabad's annual technical festival.",
     },
     {
       role: "Active Member",
@@ -127,20 +151,20 @@ export const portfolioData = {
 
   sampleQA: [
     {
-      q: "What is ReFind?",
-      a: "ReFind is a campus peer-to-peer marketplace I helped build as Frontend Developer and UI/UX Lead. It replaces chaotic WhatsApp groups with a structured platform where students can list items or post specific requests.",
+      q: "What did Moh work on during her AI/ML internship?",
+      a: "At SimpleWorks Solutions, I built production-oriented AI systems: PitchBot for live B2B sales calls, an agentic RAG insurance-policy assistant, and a dual-sided hiring automation pipeline for applications and screening.",
     },
     {
       q: "What college does Moh attend?",
-      a: "I'm studying at BITS Pilani, Hyderabad Campus — pursuing a dual degree in MSc. Mathematics and B.E. Computer Science (graduating 2029).",
+      a: "I'm studying at BITS Pilani, Hyderabad Campus, pursuing a B.E. in Computer Science and an M.Sc. in Mathematics. My current CGPA is 7.72.",
     },
     {
       q: "What programming languages does Moh know?",
-      a: "I'm proficient in C, C++, and Python, and I actively practise Data Structures and Algorithms on LeetCode and Codeforces.",
+      a: "I work with Python, C, C++, TypeScript, JavaScript, and SQL. My AI stack includes Next.js, FastAPI, LangChain, LlamaIndex, crewAI, AutoGen, ChromaDB, and Supabase.",
     },
     {
       q: "What clubs is Moh part of?",
-      a: "I'm active in SEDS, SWMC (student mentoring), AUGSD (registration guidance), DoPY (photography), and Embryo (speaker series). I also captain the Powerlifting Team.",
+      a: "I'm a Senior Photographer with DoPY, a certified Student Mentor with SWMC, and an active member of SEDS, AUGSD, and Embryo. I also captain the BITS Powerlifting Team.",
     },
     {
       q: "What are Moh's sports achievements?",
@@ -148,7 +172,7 @@ export const portfolioData = {
     },
     {
       q: "How can I contact Moh?",
-      a: "You can reach me at f20240845@hyderabad.bits-pilani.ac.in or connect on LinkedIn — the link is in the Contact section.",
+      a: "You can reach me at mohbhargava04@gmail.com or connect with me on LinkedIn.",
     },
   ],
 };
