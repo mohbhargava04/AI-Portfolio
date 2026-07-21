@@ -8,11 +8,19 @@ export default function Cursor() {
   useEffect(() => {
     if (window.matchMedia("(pointer: coarse)").matches) return;
     const move = (event: MouseEvent) => {
-      cursor.current?.style.setProperty("transform", `translate(${event.clientX}px, ${event.clientY}px)`);
+      if (!cursor.current) return;
+      cursor.current.style.left = `${event.clientX}px`;
+      cursor.current.style.top = `${event.clientY}px`;
     };
     const over = (event: Event) => {
       const target = event.target as HTMLElement;
-      cursor.current?.classList.toggle("cursor-active", Boolean(target.closest("a, button, input")));
+      const interactive = target.closest("a, button, input, summary");
+      const card = target.closest(".internship-project, .note-card, .all-note");
+      const object = target.closest(".hero-orbit");
+      cursor.current?.classList.toggle("cursor-active", Boolean(interactive || card || object));
+      cursor.current?.classList.toggle("cursor-card", Boolean(card));
+      cursor.current?.classList.toggle("cursor-orbit", Boolean(object));
+      if (cursor.current) cursor.current.querySelector("span")!.textContent = object ? "◌" : card ? "↗" : "<>";
     };
     window.addEventListener("pointermove", move);
     window.addEventListener("pointerover", over);

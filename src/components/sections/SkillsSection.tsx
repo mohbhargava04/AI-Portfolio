@@ -1,40 +1,13 @@
 "use client";
+
 import { portfolioData } from "@/data/portfolio";
 
 export default function SkillsSection() {
-  const { skills } = portfolioData;
-
   const groups = [
-    { label: "Languages", items: skills.languages },
-    { label: "Frameworks & Libraries", items: skills.frameworks },
-    { label: "Tools & Platforms", items: skills.tools },
-    { label: "Areas of Focus", items: skills.areas },
-  ];
-
-  return (
-    <section id="skills" style={{ maxWidth: "1100px", margin: "0 auto", padding: "6rem 2rem", borderTop: "1px solid var(--border)" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: "4rem", alignItems: "start" }}>
-        <div style={{ paddingTop: "0.25rem" }}>
-          <span className="section-label">Skills</span>
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "2.5rem", fontWeight: 300, lineHeight: 1.1, marginTop: "0.75rem", color: "var(--ink)" }}>
-            What I work with
-          </h2>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
-          {groups.map((group) => (
-            <div key={group.label}>
-              <div style={{ fontFamily: "var(--font-body)", fontSize: "0.65rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-faint)", marginBottom: "0.875rem" }}>
-                {group.label}
-              </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-                {group.items.map((item) => (
-                  <span key={item} className="skill-pill">{item}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+    ["01", "Languages", portfolioData.skills.languages],
+    ["02", "Frameworks & systems", portfolioData.skills.frameworks],
+    ["03", "Tools & infrastructure", portfolioData.skills.tools],
+    ["04", "What I like solving", portfolioData.skills.areas],
+  ] as const;
+  return <section id="skills" className="skills-v2"><div className="section-intro"><span className="eyebrow">Capabilities</span><h2>I build for <em>clarity</em>,<br />speed, and trust.</h2><p>AI is only useful when it is grounded in real work. My stack reflects that: systems thinking, practical shipping, and a product eye.</p></div><div className="skill-rows">{groups.map(([number, label, items]) => <div className="skill-row" key={label}><span>{number}</span><h3>{label}</h3><div>{items.map((item) => <b key={item}>{item}</b>)}</div></div>)}</div></section>;
 }

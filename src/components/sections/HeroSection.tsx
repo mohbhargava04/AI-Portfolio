@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { portfolioData } from "@/data/portfolio";
@@ -23,11 +22,14 @@ export default function HeroSection() {
         .from(".hero-object", { scale: 0.72, opacity: 0, duration: 0.9, stagger: 0.1 }, "-=0.7");
 
       gsap.to(".hero-name-stage", { scale: 0.73, xPercent: -19, yPercent: -18, ease: "none", scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: 0.7 } });
-      gsap.to(".name-fragment", { opacity: 1, stagger: 0.035, ease: "none", scrollTrigger: { trigger: root.current, start: "28% top", end: "67% top", scrub: true } });
+      gsap.to(".name-fragment", { opacity: 1, x: (index) => (index % 2 ? 55 + index * 7 : -38 - index * 6), y: (index) => (index % 3 - 1) * 42, rotate: (index) => (index % 2 ? 1 : -1) * (12 + index * 4), stagger: 0.035, ease: "none", scrollTrigger: { trigger: root.current, start: "21% top", end: "67% top", scrub: true } });
       gsap.to(".hero-orbit", { rotate: 105, y: -54, ease: "none", scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: 1 } });
+      gsap.to(".hero-copy", { y: -55, opacity: 0.25, ease: "none", scrollTrigger: { trigger: root.current, start: "38% top", end: "bottom top", scrub: true } });
     }, root);
     return () => context.revert();
   }, []);
+
+  const openAssistant = () => window.dispatchEvent(new Event("open-moh-ai"));
 
   return (
     <section ref={root} id="about" className="hero">
@@ -40,7 +42,7 @@ export default function HeroSection() {
       <div className="hero-copy">
         <p className="hero-subline">{personal.tagline}</p>
         <p>{personal.bio}</p>
-        <Link href="#field-notes" className="hero-command"><span>Ask Moh&apos;s AI</span><kbd>⌘ K</kbd></Link>
+        <button type="button" className="hero-command" onClick={openAssistant}><span>Ask Moh&apos;s AI</span><kbd>⌘ K</kbd></button>
       </div>
       <div className="hero-orbit" aria-hidden="true">
         <div className="hero-object object-orb"><div className="orb-core" /><i /><b /></div>

@@ -1,56 +1,29 @@
 "use client";
+
 import { portfolioData } from "@/data/portfolio";
 
+function ProjectLink({ href }: { href: string | null }) {
+  return href ? <a href={href} target="_blank" rel="noreferrer" className="project-repo">Repository <span>↗</span></a> : <span className="project-private">Internship brief</span>;
+}
+
+const flows = [
+  ["identify", "retrieve", "clarify", "answer"],
+  ["ingest", "extract", "retrieve", "respond"],
+  ["parse", "score", "analyse", "shortlist"],
+  ["research", "tailor", "prepare", "reach out"],
+];
+
 export default function ProjectsSection() {
-  const { projects } = portfolioData;
-
-  return (
-    <section id="projects" style={{ maxWidth: "1100px", margin: "0 auto", padding: "6rem 2rem", borderTop: "1px solid var(--border)" }}>
-      <div style={{ marginBottom: "3.5rem" }}>
-        <span className="section-label">Work</span>
-        <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 300, lineHeight: 1.1, marginTop: "0.75rem", color: "var(--ink)" }}>
-          Selected Projects
-        </h2>
-      </div>
-
-      <div style={{ display: "flex", flexDirection: "column", gap: "1.5px" }}>
-        {projects.map((project, i) => (
-          <div key={project.name} className="card-hover" style={{ background: "white", border: "1px solid var(--border-soft)", borderRadius: "4px", padding: "2.5rem", position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", top: "2rem", right: "2rem", fontFamily: "var(--font-display)", fontSize: "5rem", fontWeight: 300, color: "var(--cream-dark)", lineHeight: 1, userSelect: "none" }}>
-              {String(i + 1).padStart(2, "0")}
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", position: "relative" }}>
-              <div>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
-                  <span style={{ fontFamily: "var(--font-body)", fontSize: "0.65rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold)", padding: "3px 10px", border: "1px solid var(--gold-light)", borderRadius: "2px", background: "var(--gold-faint)" }}>{project.type}</span>
-                  <span style={{ fontFamily: "var(--font-body)", fontSize: "0.65rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-faint)" }}>{project.status}</span>
-                </div>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "2.25rem", fontWeight: 400, color: "var(--ink)", marginBottom: "0.5rem" }}>{project.name}</h3>
-                <p style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "var(--ink-muted)", fontStyle: "italic", marginBottom: "1.25rem" }}>{project.tagline}</p>
-                <p style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "var(--ink-soft)", lineHeight: 1.8 }}>{project.description}</p>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-                <div>
-                  <div style={{ fontFamily: "var(--font-body)", fontSize: "0.65rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-faint)", marginBottom: "0.75rem" }}>The Problem</div>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: "0.875rem", color: "var(--ink-soft)", lineHeight: 1.7 }}>{project.problem}</p>
-                </div>
-                <div>
-                  <div style={{ fontFamily: "var(--font-body)", fontSize: "0.65rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-faint)", marginBottom: "0.75rem" }}>The Solution</div>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: "0.875rem", color: "var(--ink-soft)", lineHeight: 1.7 }}>{project.solution}</p>
-                </div>
-                <div>
-                  <div style={{ fontFamily: "var(--font-body)", fontSize: "0.65rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-faint)", marginBottom: "0.75rem" }}>Tech Stack</div>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
-                    {project.tech.map((t) => (
-                      <span key={t} className="skill-pill" style={{ fontSize: "0.7rem" }}>{t}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
+  return <section id="projects" className="projects-v3">
+    <header className="projects-header"><span className="eyebrow">Internship projects</span><h2>Four systems.<br /><em>Different stakes.</em></h2><p>Each project started with a workflow that was slow, fragmented, or difficult to trust - then became a focused agentic system with a clear job to do.</p></header>
+    <div className="internship-project-grid">{portfolioData.internshipProjects.map((project, index) => <article className="internship-project interactive-card" key={project.name}>
+      <div className="project-card-top"><span>0{index + 1}</span><p>{project.kicker}</p><ProjectLink href={project.github} /></div>
+      <h3>{project.name}</h3><p className="project-summary">{project.description}</p>
+      <div className="project-signal"><strong>{project.metric}</strong><span>{project.metricLabel}</span></div>
+      <div className="project-flow" aria-label={`${project.name} flow`}>{flows[index].map((step, stepIndex) => <span key={step}>{step}<i>{stepIndex < 3 ? "→" : ""}</i></span>)}</div>
+      <details><summary>How it works <b>+</b></summary><p>{project.detail}</p></details>
+      <div className="project-tech">{project.tech.map((tech) => <span key={tech}>{tech}</span>)}</div>
+    </article>)}</div>
+    <div className="independent-work"><div><span className="eyebrow">Also building</span><h3>Independent work</h3></div><div className="independent-list">{portfolioData.independentProjects.map((project) => <article key={project.name}><div><p>{project.type}</p><h4>{project.name}</h4><span>{project.tagline}</span></div><p>{project.description}</p></article>)}</div></div>
+  </section>;
 }

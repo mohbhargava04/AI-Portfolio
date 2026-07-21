@@ -57,7 +57,58 @@ export const portfolioData = {
     ],
   },
 
-  projects: [
+  internship: {
+    organisation: "SimpleWorks Solutions · SimpleCRM",
+    role: "AI/ML Intern",
+    period: "May 2026 – July 2026",
+    intro: "Built production-oriented agentic AI systems across sales enablement, insurance support, and hiring automation - with an emphasis on grounded retrieval, orchestration, and useful outputs.",
+    highlights: ["7-agent ingestion pipeline", "Direct RAG hot path", "85% query-routing accuracy", "~70% less screening time"],
+  },
+
+  internshipProjects: [
+    {
+      name: "Insurance Policy Assistant",
+      kicker: "Agentic RAG · Insurance support",
+      description: "A five-agent insurance-policy assistant that combines structured customer and policy lookup with contextual document retrieval.",
+      detail: "Routes each query between database retrieval and RAG, detects ambiguous policy documents, asks clarifying questions, and returns grounded policy answers with conversational continuity.",
+      tech: ["AutoGen", "LlamaIndex", "MySQL", "SQLAlchemy", "Streamlit"],
+      metric: "~4 min → ~18 sec",
+      metricLabel: "average policy-query resolution",
+      github: null,
+    },
+    {
+      name: "PitchBot",
+      kicker: "Live B2B sales copilot",
+      description: "A scalable AI copilot for B2B pitch calls, built around a deliberate split between quality-focused ingestion and latency-focused live retrieval.",
+      detail: "A seven-agent AutoGen ingestion pipeline chunks, extracts, validates, cross-checks, and embeds facts. The live path bypasses orchestration entirely: classify → retrieve from ChromaDB → synthesize a grounded answer.",
+      tech: ["AutoGen", "ChromaDB", "Ollama", "Llama 3.2", "Streamlit"],
+      metric: "7 agents · 2 pipelines",
+      metricLabel: "with a direct RAG hot path",
+      github: "https://github.com/mohbhargava04/pitchbot",
+    },
+    {
+      name: "Internship Application Screener",
+      kicker: "ATS scoring · recruitment workflow",
+      description: "A six-agent application-screening system that turns a job description and candidate materials into a transparent, structured evaluation.",
+      detail: "Uses a two-stage conditional pipeline and a deterministic 10-field, 100-point ATS rubric. Job descriptions are split into Required, Preferred, and Responsibility sections before grounded match scoring and gap analysis.",
+      tech: ["Multi-Agent AI", "ATS Scoring", "RAG", "Python", "Ollama"],
+      metric: "~70% faster",
+      metricLabel: "manual screening per applicant",
+      github: "https://github.com/mohbhargava04/internship-screener-agent",
+    },
+    {
+      name: "Job Application Agent",
+      kicker: "Career workflow automation",
+      description: "A seven-agent local-first system that turns a role and a résumé into a focused application package in one run.",
+      detail: "Researches the role and company, identifies hiring patterns, tailors a résumé, drafts a cover letter and recruiter email, surfaces a gap report, and produces interview talking points.",
+      tech: ["crewAI", "Ollama", "PyMuPDF", "Streamlit", "Serper"],
+      metric: "2–3 hrs → under 5 min",
+      metricLabel: "application preparation time",
+      github: "https://github.com/mohbhargava04/job-application-agent",
+    },
+  ],
+
+  independentProjects: [
     {
       name: "Codebase Documentation Agent",
       tagline: "AI Documentation in a Single Run",
@@ -90,14 +141,7 @@ export const portfolioData = {
     },
   ],
 
-  experience: [
-    {
-      role: "AI/ML Intern",
-      organisation: "SimpleCRM · SimpleWorks Solutions, Nagpur",
-      period: "May 2026 – July 2026",
-      description:
-        "Built PitchBot, a production-oriented AI sales copilot with a seven-agent AutoGen ingestion pipeline and a direct ChromaDB + LLaMA 3.2 RAG path for sub-second live retrieval. Also developed an agentic insurance-policy assistant that reduced query resolution from roughly four minutes to 18 seconds, and a dual-sided AI hiring system that reduced application preparation to under five minutes and manual screening time by about 70% per applicant.",
-    },
+  leadership: [
     {
       role: "Captain",
       organisation: "Powerlifting Team, BPHC",

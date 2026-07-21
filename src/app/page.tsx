@@ -7,12 +7,16 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import EducationSection from "@/components/sections/EducationSection";
 import FieldNotesSection from "@/components/sections/FieldNotesSection";
+import ContactSection from "@/components/sections/ContactSection";
+import Footer from "@/components/ui/Footer";
+import AskAiModal from "@/components/ui/AskAiModal";
 
 export default function Home() {
   return (
     <SmoothScroll>
       <Cursor />
       <Navbar />
+      <AskAiModal />
       <main>
         <HeroSection />
         <SkillsSection />
@@ -20,7 +24,9 @@ export default function Home() {
         <ExperienceSection />
         <EducationSection />
         <FieldNotesSection />
+        <ContactSection />
       </main>
+      <Footer />
     </SmoothScroll>
   );
 }

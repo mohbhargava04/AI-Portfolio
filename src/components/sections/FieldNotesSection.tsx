@@ -1,5 +1,5 @@
 import Link from "next/link";
-import PandaGuide from "@/components/ui/PandaGuide";
+import PandaTrail from "@/components/ui/PandaTrail";
 import { fieldNotes } from "@/data/field-notes";
 
 export default function FieldNotesSection() {
@@ -17,7 +17,7 @@ export default function FieldNotesSection() {
           </Link>
         ))}
       </div>
-      <div className="panda-home"><PandaGuide variant="notes" /><span>little field guide</span></div>
+      <PandaTrail />
     </section>
   );
 }
